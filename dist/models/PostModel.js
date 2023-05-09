@@ -13,7 +13,7 @@ Post.init(Object.assign(Object.assign({}, BaseModel_1.baseModelAttributes), { ti
         type: sequelize_1.DataTypes.STRING(500),
         allowNull: false,
     }, text: {
-        type: sequelize_1.DataTypes.TEXT('long'),
+        type: sequelize_1.DataTypes.TEXT,
         allowNull: false
     }, author: {
         type: sequelize_1.DataTypes.INTEGER,

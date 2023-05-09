@@ -29,7 +29,7 @@ Post.init(
       allowNull: false,
     },
     text: {
-      type: DataTypes.TEXT('long'),
+      type: DataTypes.TEXT,
       allowNull: false
     },
     author: {

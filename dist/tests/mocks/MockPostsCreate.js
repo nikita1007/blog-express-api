@@ -12,16 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const UserService_1 = __importDefault(require("../../services/UserService"));
-const AuthService_1 = __importDefault(require("../../services/AuthService"));
 const PostService_1 = __importDefault(require("../../services/PostService"));
-const fake_users = [
-    { "username": "badamik0", "password": "tlgwX19M" },
-    { "username": "kjubb1", "password": "ibnDrr1zkRzU" },
-    { "username": "dstigger2", "password": "9xyLYg5I6k51" },
-    { "username": "vodrought3", "password": "uQ2utLzEH" },
-    { "username": "mbrandham4", "password": "wiklsV" }
-];
 const fake_posts = [
     {
         "title": "5 бизнес-идей для начинающих предпринимателей",
@@ -81,20 +72,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
 }
-for (let i = 0; i < 5; i++) {
-    (() => __awaiter(void 0, void 0, void 0, function* () {
-        const user = yield new UserService_1.default().createUser(fake_users[i].username, fake_users[i].password);
-        if (user.hasOwnProperty('error')) {
-            console.log(user);
-        }
-        else {
-            const token = (yield new AuthService_1.default().login(user.username, user.password));
-            if (token.hasOwnProperty('error')) {
-                console.log(token);
-            }
-        }
-    }))();
-}
 for (let i = 0; i < 100; i++) {
     (() => __awaiter(void 0, void 0, void 0, function* () {
         const params = { text: fake_posts[getRandomInt(0, 13)].text, title: fake_posts[getRandomInt(0, 13)].title, author: getRandomInt(1, 6) };
@@ -106,4 +83,5 @@ for (let i = 0; i < 100; i++) {
         }
     }))();
 }
-//# sourceMappingURL=MockDataCreate.js.map
+console.log("Посты были успешно созданы!");
+//# sourceMappingURL=MockPostsCreate.js.map
